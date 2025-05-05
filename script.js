@@ -93,7 +93,7 @@ const initMap = () => {
           type: 'line',
           source: 'japan',
           paint: {
-            'line-color': '#000000',
+            'line-color': '#cccccc',
             'line-width': 1
           }
         }
