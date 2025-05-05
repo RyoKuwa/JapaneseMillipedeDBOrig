@@ -57,6 +57,10 @@ const initMap = () => {
           tiles: ['https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'],
           tileSize: 256,
           attribution: 'Imagery © <a href="https://www.esri.com/en-us/home" target="_blank">Esri</a>'
+        },
+        japan: {
+          type: "geojson",
+          data: "Japan.geojson"
         }
       },
       layers: [
@@ -72,13 +76,30 @@ const initMap = () => {
           id: 'satellite-layer',
           type: 'raster',
           source: 'esri',
-          layout: { visibility: 'none' }, // 初期状態で非表示
+          layout: { visibility: 'none' },
           minzoom: 0,
           maxzoom: 19
+        },
+        {
+          id: 'japan-fill',
+          type: 'fill',
+          source: 'japan',
+          paint: {
+            'fill-color': 'rgba(0, 0, 0, 0)'  // 完全透明
+          }
+        },
+        {
+          id: 'japan-outline',
+          type: 'line',
+          source: 'japan',
+          paint: {
+            'line-color': '#000000',
+            'line-width': 1
+          }
         }
       ]
     },
-    center: [136, 35.7],
+    center: [139.9, 36.7],
     zoom: defaultZoom,
     maxZoom: 19,
     minZoom: 3,
